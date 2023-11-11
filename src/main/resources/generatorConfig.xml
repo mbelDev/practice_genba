@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context1" targetRuntime="MyBatis3">
+    <jdbcConnection 
+    	connectionURL="jdbc:mysql://localhost/sampledb" 
+    	driverClass="com.mysql.cj.jdbc.Driver" 
+    	password="IH1170892075#" 
+    	userId="root" />
+    <javaModelGenerator 
+    	targetPackage="com.example.demo.entity" 
+    	targetProject="BrightStarKensyuu/src/main/java" />
+    <sqlMapGenerator 
+    	targetPackage="com.example.demo.mapper" 
+    	targetProject="BrightStarKensyuu/src/main/java"/> 
+    <javaClientGenerator 
+    	targetPackage="com.example.demo.mapper" 
+    	targetProject="BrightStarKensyuu/src/main/java" 
+    	type="XMLMAPPER" />
+    <table schema="sampledb" tableName="tg_setting"/>
+    <table schema="sampledb" tableName="torihikisaki_main"/>
+    <table schema="sampledb" tableName="torihikisaki_tantou"/>
+  </context>
+</generatorConfiguration>

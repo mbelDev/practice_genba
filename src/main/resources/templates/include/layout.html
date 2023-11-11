@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	
+	<title>Deep Dark RPG</title>
+	
+	<link href="/css/layout.css">	
+	
+    <th:block layout:fragment="css"></th:block>
+    <th:block layout:fragment="script">
+		<script src="/js/layout.js" defer></script>
+	</th:block>
+    
+</head>
+
+<body>
+	<div class="content_container" >
+		<header class="header column">
+			<div class="header row space-between">
+				<div class="header-left">
+					<p class="main">株式会社ブライトスター</p>
+					<p class="sub">BRIGHT STAR CO LTD.</p>
+				</div>
+				<div class="header-center"><p>社内総合管理システム</p></div>
+				<div class="header-right">
+					<img src="/image/logo.png">
+				</div>
+			</div>
+			<div class="header row space-between">
+				<span class="header-menu type1">作業催促</span>
+				<span class="header-menu type1">作業催促</span>
+				<span class="header-menu type1">外注管理</span>
+				<span class="header-menu type1">請求管理</span>
+				<span class="header-menu type1">見積作成</span>
+				<span class="header-menu type1">各種類作</span>
+				<span class="header-menu type2 selected"><a th:href="@{/connection}">取引先管</a></span>
+				<span class="header-menu type2">社員管理</span>
+				<span class="header-menu type3">システム設</span>
+				<span class="header-menu type3">ユーザ管</span>
+			</div>
+		</header>
+		<th:block layout:fragment="content"></th:block>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Deep Dark RPG</title>
+		<link rel="stylesheet" href="/css/index.css">
+		
+	</head>
+
+	<body>
+		<header>
+			<h2>TEST</h2>
+		</header>
+		<main>
+			<div class="container">
+				<div class="kwonsData">
+					<table>
+						<thead>
+							<tr>
+								<th>타이틀</th>
+								<th>IOS</th>
+								<th>Android</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="item : ${testList}">
+								<td th:text="${item.itemName}"></td>
+								<td th:text="${item.itemIOS} == 1  ? 'O' : 'X'"></td>
+								<td th:text="${item.itemAndroid} == 1 ? 'O' : 'X'"></td>
+							</tr>
+					</tbody>
+				</table>
+				</div>
+				
+				<!-- 입력 상자들을 담는 div -->
+				<div class="listPractice">
+					
+					<!-- inputItemList 내용물 갯수만큼 반복 -->
+					<div th:each="item : ${inputItemList}" style="width:320px;">
+					
+						<!-- type1 TEXT_BOX일 떄 텍스트박스 생성(아니면 아무것도 생성하지 않음) -->
+						<div th:if="${item.typeId} == 'TEXT_BOX' ">
+							<span th:text="${item.name}"/>
+							<input type="text">
+						</div>
+						<!-- type2 CHECK_BOX일 떄 -->
+						<div th:if="${item.typeId} == 'CHECK_BOX' ">
+							<span th:text="${item.name}"/>
+							<input type="checkbox">
+						</div>
+						<!-- type3 DROPDOWN_LIST일 떄 -->
+						<div th:if="${item.typeId} == 'DROPDOWN_LIST' ">
+							<span th:text="${item.name}"/>
+							
+							<!-- dropdown list는 select로 만듭니다 -->
+							<select style="width:160px;">
+								<!-- 내용물은option을 써서 채워넣구요 -->
+								<!-- th:text는 선택지에 보여질 이름이고 -->
+								<!-- th:value는 실제로 입력받을 데이터 값입니다 -->
+								<option th:each="condition_item : ${conditionList}" 
+								th:if="${condition_item.listId} == ${item.listId}"
+								th:text="${condition_item.name}"
+								th:value="${condition_item.itemId}"></option>
+							</select>
+						</div>
+						<!-- type1 textbox일 떄 -->
+						<div th:if="${item.typeId} == 'COLOR' ">
+							<span th:text="${item.name}"/>
+							<input type="color">
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
